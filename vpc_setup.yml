@@ -83,4 +83,14 @@
         resource_tags:
           Name: vprofile-prisub3
       register: prisub3_out
-
+    - name: Internet Gateway Setup
+      ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{ region }}"
+        az: "{{ zone3 }}"
+        state: "{{state}}"
+        cidr: "{{ PriSub3Cidr }}"
+        map_public: yes
+        resource_tags:
+          Name: vprofile-IGW
+      register: igw_out
