@@ -188,7 +188,7 @@
           db01_ip: {{ db01_out.tagged_instances[0].private_ip }}
     - name: Copy login key to provision_stack directory
       copy:
-        src: loginkey_vpro.pem
+        src: login_vpro.pem
         dest: provision-stack/loginkey_vpro.pem
         mode: '0400'
     - name: Insert/Update Inventory file provision-stack/inventory-vpro
